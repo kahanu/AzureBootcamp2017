@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  golftracker.services.webapi:
+    image: golftracker.services.webapi
+    build:
+      context: ./GolfTracker.Services.WebApi
+      dockerfile: Dockerfile
