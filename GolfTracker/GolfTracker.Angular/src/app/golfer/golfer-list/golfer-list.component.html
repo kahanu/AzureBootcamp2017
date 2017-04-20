@@ -1,0 +1,60 @@
+<h1>Golfers</h1>
+<p>
+    This is a list of golfers.
+</p>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="table-responsive hidden-xs">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Handicap</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="showLoading">
+                        <td colspan="3" align="center"><gt-loader></gt-loader></td>
+                    </tr>
+                    <tr *ngFor="let g of golfers; let idx = index">
+                        <td>{{ g.name }}</td>
+                        <td><span class="glyphicon glyphicon-plus xs" *ngIf="g.isPlus"></span>{{ g.handicap }}</td>
+                        <td><a (click)="clickShowRounds(g)">Show Rounds</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="visible-xs">
+            <div *ngIf="showLoading">
+                <gt-loader></gt-loader>
+            </div>
+            <button *ngFor="let g of golfers; let idx = index" (click)="clickShowRounds(g)">
+                <span class="player-name">{{ g.name }}</span>
+                <span class="handicap"><i class="glyphicon glyphicon-plus xs" *ngIf="g.isPlus"></i>{{ g.handicap }}</span>
+            </button>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary" *ngIf="showRounds">
+            <div class="panel-heading">
+                <h3 class="panel-title">Rounds for {{ golfer.name }}</h3>
+            </div>
+            <div class="panel-body">
+                <div *ngFor="let round of rounds">
+                    {{ round.datePlayed | date }}
+                    <h3>{{ round.golfCourse.golfClubName }} {{ round.golfCourse.golfCourseName }}</h3>
+                    <h4>{{ round.golfCourse.teePlayed.gender }} {{ round.golfCourse.teePlayed.teeName }} Tee - {{ round.golfCourse.teePlayed.length
+                        }} yds. - Slope/Rating: {{ round.golfCourse.teePlayed.slope }}/{{ round.golfCourse.teePlayed.rating
+                        }} - Par: {{ round.golfCourse.teePlayed.par }}</h4>
+                    <div class="score-div"><b>Score</b>: <span [ngClass]="round.scoreClass">{{ round.score }}</span> - <b>Net</b>: <span [ngClass]="round.netScoreClass">{{ round.netScore }}</span>
+                        <span class="sandbagger" *ngIf="round.netScore <= (round.golfCourse.teePlayed.par-5)"><i class="glyphicon glyphicon-warning-sign"></i> Sandbagger Alert!</span>
+                    </div>
+                    <hr />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

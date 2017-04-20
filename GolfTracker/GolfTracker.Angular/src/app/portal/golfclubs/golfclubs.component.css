@@ -1,0 +1,39 @@
+.button-block {
+    margin-top: 10px;
+}
+
+.golf-club-block {
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.golf-club-block h3 {
+    margin: 0;
+}
+
+.golf-club-block h3 a {
+    float: right;
+    width: auto;
+}
+
+.golf-club-block h3 a span.badge {
+    font-size: 0.8em;
+}
+
+gt-portal > gt-golfclubs > div > div > button {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    table.table tbody td {
+        font-size: 1.1em;
+    }
+
+    
+    gt-portal > gt-golfclubs > div > div > button {
+        width: auto;
+    }
+
+}

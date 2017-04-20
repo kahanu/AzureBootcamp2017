@@ -1,0 +1,59 @@
+<p>Manage the golf clubs here.</p>
+<div class="row">
+    <div [ngClass]="{'col-md-7':shortTable, 'col-md-12':!shortTable}">
+        <button class="btn btn-success" type="button" (click)="addGolfClub()">
+            <span class="glyphicon glyphicon-plus"></span> Add Golf Club
+        </button>
+        <div class="table-responsive hidden-xs">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Golf Club</th>
+                        <th>Location</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="showLoading">
+                        <td colspan="6" align="center"><gt-loader></gt-loader></td>
+                    </tr>
+                    <tr *ngFor="let golfclub of golfclubs; let idx = index">
+                        <td>{{ golfclub.name }}</td>
+                        <td>{{ golfclub.location }}</td>
+                        <td><button class="glyphicon glyphicon-edit" (click)="editGolfClub(golfclub)"></button></td>
+                        <td><button class="glyphicon glyphicon-trash" (click)="deleteGolfClub(golfclub, idx)"></button></td>
+                        <td><button (click)="showCourseForm(golfclub)">Add Course</button></td>
+                        <td><button (click)="showGolfCoursesTable(golfclub)" *ngIf="golfclub.golfCourses?.length > 0">Courses <span class="badge">{{ golfclub.golfCourses?.length }}</span></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="visible-xs button-block">
+            <div *ngIf="showLoading">
+                <gt-loader></gt-loader>
+            </div>
+            <div class="golf-club-block" *ngFor="let golfclub of golfclubs; let idx = index">
+                <h3>{{ golfclub.name }} <a (click)="showGolfCoursesTable(golfclub)" *ngIf="golfclub.golfCourses?.length > 0"><span class="badge">{{ golfclub.golfCourses?.length }}</span></a></h3>
+                <div>{{ golfclub.location }}</div>
+                <button class="glyphicon glyphicon-edit" (click)="editGolfClub(golfclub)"></button>
+                <button class="glyphicon glyphicon-trash" (click)="deleteGolfClub(golfclub, idx)"></button>
+                <button class="glyphicon glyphicon-plus" (click)="showCourseForm(golfclub)"></button>
+            </div>
+        </div>
+    </div>
+    <div [ngClass]="{'col-md-5':shortTable}">
+        <!-- Form for managing Golf Clubs -->
+        <gt-manage-golf-club [model]="golfclub" [dialogTitle]="dialogTitle" [isVisible]="golfClubFormIsVisible" (close)="onCloseManageGolfClub()"></gt-manage-golf-club>
+
+        <!-- The form for managing the golf courses. -->
+        <gt-manage-course [golfclub]="golfclub" [golfcourse]="golfcourse" [isVisible]="golfCourseFormIsVisible" [dialogTitle]="dialogTitle"
+            (close)="onCloseManageCourse()"></gt-manage-course>
+
+        <!-- The Table showing the golf courses for the selected golf club, to add tees. -->
+        <gt-portal-golf-courses-for-golf-club [golfclub]="golfclub" [isVisible]="golfCoursesTableIsVisible" (close)="onGolfCoursesPanelClose()"></gt-portal-golf-courses-for-golf-club>
+
+    </div>
+</div>

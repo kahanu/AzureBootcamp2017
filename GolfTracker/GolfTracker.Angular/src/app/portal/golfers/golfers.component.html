@@ -1,0 +1,79 @@
+<h1>Manage Golfers</h1>
+<p>You can manage golfers from this page.</p>
+<p>
+    <b>IMPORTANT!</b> Make sure you have golf clubs created first before adding golfers.
+</p>
+
+<div class="row">
+    <!-- This ngClass directive says:   
+        -- if shortTable is true, set a CSS class of "col-md-6" to make the table half page wide, otherwise, it's full page width.
+    -->
+    <div [ngClass]="{'col-md-7': shortTable, 'col-md-12': !shortTable}">
+        <button class="btn btn-success" type="button" (click)="showAddGolferForm()">
+            <span class="glyphicon glyphicon-plus"></span> Add Golfer
+        </button>
+        <div class="table-responsive hidden-xs">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Handicap Index</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="showLoading">
+                        <td colspan="6" align="center"><gt-loader></gt-loader></td>
+                    </tr>
+                    <tr *ngFor="let g of golfers; let idx = index">
+                        <td>{{ g.name }}</td>
+                        <td><span class="glyphicon glyphicon-plus xs" *ngIf="g.isPlus"></span>{{ g.handicap }}</td>
+                        <td><button class="glyphicon glyphicon-edit" (click)="updateGolfer(g)"></button></td>
+                        <td><button class="glyphicon glyphicon-trash" (click)="deleteGolfer(g, idx)"></button></td>
+                        <td><button (click)="showRoundForm(g, idx)">Add Round</button></td>
+                        <td><button (click)="viewRounds(g)" *ngIf="g.rounds?.length !== 0">Rounds <span class="badge">{{ g.rounds.length }}</span></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="visible-xs button-block">
+            <div *ngIf="showLoading">
+                <gt-loader></gt-loader>
+            </div>
+            <div class="golfer-block" *ngFor="let g of golfers; let idx = index">
+                <h3>{{ g.name }} <span class="glyphicon glyphicon-plus sm" *ngIf="g.isPlus"></span>{{ g.handicap }} <a (click)="viewRounds(g)"
+                        *ngIf="g.rounds != null"><span class="badge">{{ g.rounds.length }}</span></a></h3>
+                <button class="glyphicon glyphicon-edit" (click)="updateGolfer(g)"></button>
+                <button class="glyphicon glyphicon-trash" (click)="deleteGolfer(g, idx)"></button>
+                <button class="glyphicon glyphicon-plus" (click)="showRoundForm(g, idx)"></button>
+            </div>
+        </div>
+    </div>
+    <div [ngClass]="{'col-md-5':shortTable}">
+
+
+        <!-- Show the form to add a golfer. -->
+        <gt-manage-golfer [golfer]="golfer" [dialogTitle]="dialogTitle" [isVisible]="golferFormIsVisible" (close)="onManageGolferClose()"></gt-manage-golfer>
+
+        <!-- Show the form to add rounds of golf for the selected golfer. -->
+        <gt-add-round [golfer]="golfer" [round]="round" [isVisible]="roundFormIsVisible" (close)="onCloseAddRoundForm()"></gt-add-round>
+
+
+        <!-- View the rounds of golf for the selected golfer. -->
+        <!-- You can optionally pass in the event into the onCloseViewRounds() method.
+
+        <view-rounds [golfer]="golfer" [isVisible]="viewRoundsIsVisible" (close)="onCloseViewRounds($event)"></view-rounds>
+
+        The value of $event would be 'false', from the:
+             this.close.emit(false);
+        ... in the ViewRoundsComponent - closeRoundsPanel() method.
+
+        See the onCloseViewRounds method in this component for more info.
+        -->
+        <gt-view-rounds [golfer]="golfer" [isVisible]="viewRoundsIsVisible" (close)="onCloseViewRounds()"></gt-view-rounds>
+
+    </div>
+</div>
