@@ -9,4 +9,4 @@ This is a fairly complex Angular app that allows users to manage golf clubs and 
 ## Screenshots
 This is the Golf Clubs page of the desktop site.
 
-![alt-text](https://github.com/kahanu/AzureBootcamp2017/screenshots/golf-tracker-golf-clubs-desktop.png "Golf Clubs Desktop")
+![alt-text](https://github.com/kahanu/AzureBootcamp2017/blob/master/screenshots/golf-tracker-golf-clubs-desktop.png "Golf Clubs Desktop")
