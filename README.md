@@ -14,4 +14,15 @@ This is the Golf Clubs page of the desktop site.
 ### Mobile screenshots
 Here are some various mobile screenshots.
 
-![alt-text](https://github.com/kahanu/AzureBootcamp2017/blob/master/screenshots/golf-tracker-golf-clubs-mobile.png "Golf Clubs Desktop") | ![alt-text](https://github.com/kahanu/AzureBootcamp2017/blob/master/screenshots/golf-tracker-golf-clubs-selected-club-mobile.png "Golf Clubs Desktop")
+![alt-text](https://github.com/kahanu/AzureBootcamp2017/blob/master/screenshots/golf-tracker-golf-clubs-mobile.png "Golf Clubs Mobile")
+
+![alt-text](https://github.com/kahanu/AzureBootcamp2017/blob/master/screenshots/golf-tracker-golf-clubs-selected-club-mobile.png "Golf Clubs Mobile with selected club")
+
+![alt-text](https://github.com/kahanu/AzureBootcamp2017/blob/master/screenshots/golf-tracker-golfers-selected-mobile.png "Golfers Mobile with selected golfer")
+
+![alt-text](https://github.com/kahanu/AzureBootcamp2017/blob/master/screenshots/golf-tracker-portal-golfclubs-mobile.png "Golf Clubs Mobile Portal")
+
+![alt-text](https://github.com/kahanu/AzureBootcamp2017/blob/master/screenshots/golf-tracker-portal-golfclubs-view-courses-mobile.png "Golf Clubs Mobile Portal with selected course")
+
+![alt-text](https://github.com/kahanu/AzureBootcamp2017/blob/master/screenshots/golf-tracker-portal-golfers-view-rounds-mobile.png "Golfers Mobile Portal with selected golfer")
+
