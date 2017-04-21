@@ -1,0 +1,4 @@
+Global Azure Racing Game
+Url: http://gabracing.azurewebsites.net/
+Key: MWT-FTI-DTY
+
