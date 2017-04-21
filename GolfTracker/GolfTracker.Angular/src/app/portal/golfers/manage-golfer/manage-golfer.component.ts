@@ -31,9 +31,9 @@ export class ManageGolferComponent {
     saveGolfer(isValid: boolean, golfer: Golfer): void {
 
         if (golfer.id === undefined) {
+            golfer.rounds = [];
             this._golferService.addGolfer(golfer)
                 .subscribe(data => {
-                    // this.golfers.push(golfer);
 
                     // I'm using a pubsub service to publish the golfer to the service
                     // and allow anyone listening to subscribe to the pubsub service

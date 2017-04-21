@@ -42,22 +42,23 @@ export class GolferListComponent implements OnInit {
             .subscribe(golfers => {
 
                 golfers.forEach(g => {
+                    if (g.rounds) {
+                        g.rounds.forEach(round => {
+                            // See if the gross score is under par and apply a style
+                            if (round.score >= round.golfCourse.teePlayed.par) {
+                                round.scoreClass = 'score';
+                            } else {
+                                round.scoreClass = 'underpar';
+                            }
 
-                    g.rounds.forEach(round => {
-                        // See if the gross score is under par and apply a style
-                        if (round.score >= round.golfCourse.teePlayed.par) {
-                            round.scoreClass = 'score';
-                        } else {
-                            round.scoreClass = 'underpar';
-                        }
-
-                        // See if the net score is under par and apply a style
-                        if (round.netScore >= round.golfCourse.teePlayed.par) {
-                            round.netScoreClass = 'score';
-                        } else {
-                            round.netScoreClass = 'underpar';
-                        }
-                    });
+                            // See if the net score is under par and apply a style
+                            if (round.netScore >= round.golfCourse.teePlayed.par) {
+                                round.netScoreClass = 'score';
+                            } else {
+                                round.netScoreClass = 'underpar';
+                            }
+                        });
+                    }
                 });
                 this.showLoading = false;
                 this.golfers = golfers;

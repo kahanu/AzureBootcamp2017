@@ -34,7 +34,7 @@
                         <td><button class="glyphicon glyphicon-edit" (click)="updateGolfer(g)"></button></td>
                         <td><button class="glyphicon glyphicon-trash" (click)="deleteGolfer(g, idx)"></button></td>
                         <td><button (click)="showRoundForm(g, idx)">Add Round</button></td>
-                        <td><button (click)="viewRounds(g)" *ngIf="g.rounds?.length !== 0">Rounds <span class="badge">{{ g.rounds.length }}</span></button></td>
+                        <td><button (click)="viewRounds(g)" *ngIf="g.rounds.length !== 0">Rounds <span class="badge">{{ g.rounds.length }}</span></button></td>
                     </tr>
                 </tbody>
             </table>
