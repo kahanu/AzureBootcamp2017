@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Input, Output, Inject } from '@angular/core';
 import { Golfer } from 'app/shared/models/models';
 import { GolferService, PubSubService, TOASTR_TOKEN, IToastr } from 'app/shared/services';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'gt-manage-golfer',
@@ -19,7 +20,7 @@ export class ManageGolferComponent {
 
     constructor(private _golferService: GolferService,
         private _pubsub: PubSubService,
-        @Inject(TOASTR_TOKEN) private _toast: IToastr) { }
+        private _toast: ToastrService) { }
 
     ///<author>
     /// KW - saveGolfer

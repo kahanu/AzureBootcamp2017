@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { GolfClub, GolfCourse } from 'app/shared/models/models';
 import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
@@ -23,7 +24,7 @@ export class ManageGolfClubComponent {
 
   constructor(private _golfClubService: GolfclubService,
     private _pubsub: PubSubService,
-    @Inject(TOASTR_TOKEN) private _toast: IToastr) { }
+    private _toast: ToastrService) { }
 
   ///<author>
   /// KW - Edit Golf Club

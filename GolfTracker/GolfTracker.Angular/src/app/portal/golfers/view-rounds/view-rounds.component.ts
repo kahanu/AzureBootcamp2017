@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { Golfer } from 'app/shared/models/models';
 import { GolferService, TOASTR_TOKEN, IToastr } from 'app/shared/services';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'gt-view-rounds',
@@ -35,7 +36,7 @@ export class ViewRoundsComponent {
   @Output() close = new EventEmitter();
 
   constructor(private _golferService: GolferService,
-    @Inject(TOASTR_TOKEN) private _toast: IToastr) { }
+    private _toast: ToastrService) { }
 
   deleteRound(idx: number): void {
     if (confirm('Are you sure you want to delete this round?')) {

@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { GolfClub, GolfCourse } from 'app/shared/models/models';
 import { GolfclubService, TOASTR_TOKEN, IToastr } from 'app/shared/services';
@@ -20,7 +21,7 @@ pageTitle: string = 'Manage course';
     errorMessage: string;
 
     constructor(private _golfClubService: GolfclubService,
-      @Inject(TOASTR_TOKEN) private _toast: IToastr) { }
+      private _toast: ToastrService) { }
 
     ///<author>
     /// KW - Save the golf course

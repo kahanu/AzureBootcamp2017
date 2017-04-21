@@ -6,8 +6,6 @@ import { GolfclubService, ExceptionService, PubSubService, TOASTR_TOKEN, IToastr
 import { HandicapCalculatorService } from '../portal/golfers/handicap-calculator.service';
 import { HttpRequestOptions } from 'app/shared/services/http-request-options';
 
-const toastr: IToastr = window['toastr'];
-
 @NgModule({
   imports: [
     CommonModule
@@ -19,10 +17,7 @@ const toastr: IToastr = window['toastr'];
     PubSubService,
     GolferService,
     HandicapCalculatorService,
-    HttpRequestOptions,
-    {
-      provide: TOASTR_TOKEN,
-      useValue: toastr
-    }]
+    HttpRequestOptions
+    ]
 })
 export class SharedModule { }

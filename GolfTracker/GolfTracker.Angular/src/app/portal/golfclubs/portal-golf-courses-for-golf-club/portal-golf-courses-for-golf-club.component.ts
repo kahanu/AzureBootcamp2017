@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, EventEmitter, Input, Output, Inject } from '@angular/core';
 import { GolfClub, GolfCourse, Tee } from 'app/shared/models/models';
 import { GolfclubService, TOASTR_TOKEN, IToastr } from 'app/shared/services';
@@ -22,7 +23,7 @@ export class PortalGolfCoursesForGolfClubComponent {
   teeFormIsVisible: boolean;
 
   constructor(private _golfClubService: GolfclubService,
-    @Inject(TOASTR_TOKEN) private _toast: IToastr) { }
+    private _toast: ToastrService) { }
 
   /**********************************************************************************************
   Begin Course Methods

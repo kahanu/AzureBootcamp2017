@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation, Inject } from '@angular/core';
 import { GolfClub, GolfCourse, Tee } from 'app/shared/models/models';
 import { GolfclubService, PubSubService, TOASTR_TOKEN, IToastr } from 'app/shared/services/index';
 import { Title } from '@angular/platform-browser';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'gt-golfclubs',
@@ -31,7 +32,7 @@ export class GolfclubsComponent implements OnInit {
 
     constructor(private _golfClubService: GolfclubService,
         private _pubsub: PubSubService,
-        @Inject(TOASTR_TOKEN) private _toast: IToastr,
+        private _toast: ToastrService,
         private _title: Title) {
                 this._title.setTitle(this.pageTitle + ' - GolfTracker');
          }

@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular
 import { Golfer, Round, GolfClub, GolfCourse, Tee } from 'app/shared/models/models';
 import { GolfclubService, GolferService, TOASTR_TOKEN, IToastr } from 'app/shared/services';
 import { HandicapCalculatorService } from 'app/portal/golfers/handicap-calculator.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'gt-add-round',
@@ -23,7 +24,7 @@ export class AddRoundComponent implements OnInit {
     private _golfClubService: GolfclubService,
     private _golferService: GolferService,
     private _handicapCalculatorService: HandicapCalculatorService,
-    @Inject(TOASTR_TOKEN) private _toast: IToastr
+    private _toast: ToastrService
   ) { }
 
   ngOnInit(): void {
