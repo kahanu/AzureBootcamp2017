@@ -59,10 +59,10 @@ export class PortalGolfCoursesForGolfClubComponent {
         golfClub.golfCourses = [];
       }
 
+      golfClub.golfCourses.splice(index, 1);
       this._golfClubService.updateGolfClub(golfClub)
         .subscribe(gc => {
           this.closeCoursesPanel();
-          golfClub.golfCourses.splice(index, 1);
           // we don't need to do anything here,
           // the deleted course will simply be removed from the
           // list of courses in the UI.
