@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewEncapsulation, Inject } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { GolfClub, GolfCourse, Tee } from 'app/shared/models/models';
-import { GolfclubService, PubSubService, TOASTR_TOKEN, IToastr } from 'app/shared/services/index';
+import { GolfclubService, PubSubService } from 'app/shared/services/index';
 import { Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
 

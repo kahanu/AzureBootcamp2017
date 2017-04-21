@@ -1,6 +1,6 @@
-import { Component, OnInit, EventEmitter, Input, Output, Inject } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { Golfer } from 'app/shared/models/models';
-import { GolferService, PubSubService, TOASTR_TOKEN, IToastr } from 'app/shared/services';
+import { GolferService, PubSubService } from 'app/shared/services';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

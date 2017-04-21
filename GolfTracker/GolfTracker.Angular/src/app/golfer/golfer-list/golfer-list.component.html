@@ -21,7 +21,7 @@
                     <tr *ngFor="let g of golfers; let idx = index">
                         <td>{{ g.name }}</td>
                         <td><span class="glyphicon glyphicon-plus xs" *ngIf="g.isPlus"></span>{{ g.handicap }}</td>
-                        <td><a (click)="clickShowRounds(g)">Show Rounds</a></td>
+                        <td><a (click)="clickShowRounds(g)" *ngIf="g.rounds.length > 0">Show Rounds</a></td>
                     </tr>
                 </tbody>
             </table>

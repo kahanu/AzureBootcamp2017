@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GolfClub, GolfCourse, Tee, Golfer, Round, GolfCoursePlayed, TeePlayed } from 'app/shared/models/models';
-import { GolferService, GolfclubService, PubSubService, TOASTR_TOKEN, IToastr } from 'app/shared/services';
+import { GolferService, GolfclubService, PubSubService } from 'app/shared/services';
 import { Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
 

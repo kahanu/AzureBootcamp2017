@@ -1,8 +1,8 @@
 import { ToastrService } from 'ngx-toastr';
-import { Component, Input, Output, EventEmitter, Inject } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { GolfClub, GolfCourse } from 'app/shared/models/models';
 import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
-import { GolfclubService, TOASTR_TOKEN, IToastr } from 'app/shared/services';
+import { GolfclubService } from 'app/shared/services';
 import { PubSubService } from 'app/shared/services/pubsub/pubsub.service';
 
 @Component({

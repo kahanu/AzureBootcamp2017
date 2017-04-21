@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Golfer, Round, GolfClub, GolfCourse, Tee } from 'app/shared/models/models';
-import { GolfclubService, GolferService, TOASTR_TOKEN, IToastr } from 'app/shared/services';
+import { GolfclubService, GolferService } from 'app/shared/services';
 import { HandicapCalculatorService } from 'app/portal/golfers/handicap-calculator.service';
 import { ToastrService } from 'ngx-toastr';
 

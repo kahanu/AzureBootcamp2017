@@ -1,7 +1,7 @@
 import { ToastrService } from 'ngx-toastr';
-import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GolfClub, GolfCourse, Tee } from 'app/shared/models/models';
-import { GolfclubService, TOASTR_TOKEN, IToastr } from 'app/shared/services';
+import { GolfclubService } from 'app/shared/services';
 
 @Component({
   selector: 'gt-manage-tee',
