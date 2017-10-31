@@ -6,10 +6,6 @@ This presentation focused on building an Angular (4) app with an Azure DocumentD
 ## GolfTracker
 This is a fairly complex Angular app that allows users to manage golf clubs and golfers, and enter and track the scores for golfers.  It's a full CRUD application and demonstrates how to perform fine grain CRUD operations even to deeply nested DocumentDB JSON documents.
 
-### Working Demo
-(as of 4/21/2017)
-[http://golftrackerng.azurewebsites.net](http://golftrackerng.azurewebsites.net/)
-
 ## Docker
 If you want some examples that use Docker, one of our developers, Jeff Etter, is at the San Francisco Azure Bootcamp.
 
