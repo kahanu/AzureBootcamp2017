@@ -1,0 +1,29 @@
+ul.portal-subnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+ul.portal-subnav li {
+    float: left;
+    width: auto;
+}
+
+ul.portal-subnav li a {
+    font-size: 1.1em;
+}
+
+ul.portal-subnav > li + li::before {
+    padding: 0 5px;
+    content: '|';
+}
+
+.active {
+    padding: 5px;
+    background-color: green;
+    border-radius: 3px;
+    color: yellow;
+}

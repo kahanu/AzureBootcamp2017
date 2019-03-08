@@ -1,0 +1,31 @@
+<h1>{{ pageTitle }}</h1>
+<p>The list of golf courses entered into the system.</p>
+<div class="row">
+    <div [ngClass]="{'col-md-7':shortTable, 'col-md-12':!shortTable}">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Golf Club</th>
+                        <th>Location</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="showLoading">
+                        <td colspan="3" align="center"><gt-loader></gt-loader></td>
+                    </tr>
+                    <tr *ngFor="let golfclub of golfclubs; let idx = index">
+                        <td>{{ golfclub.name }}</td>
+                        <td>{{ golfclub.location }}</td>
+                        <td><button (click)="showGolfCoursesTable(golfclub)" *ngIf="golfclub.golfCourses">Courses <span class="badge">{{ golfclub.golfCourses.length }}</span></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div [ngClass]="{'col-md-5':shortTable}">
+        <!-- The Table showing the golf courses for the selected golf club, to add tees. -->
+        <gt-golf-courses-for-golf-club [golfclub]="golfclub" [isVisible]="golfCoursesTableIsVisible" (close)="onGolfCoursesPanelClose()"></gt-golf-courses-for-golf-club>
+    </div>
+</div>
