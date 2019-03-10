@@ -1,19 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Customer } from '../shared/models';
+import { CustomerService } from '../core/services/customer.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'gt-home',
+  selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  pageTitle: string = 'Home';
 
-  constructor(private _title: Title) {
-    this._title.setTitle(this.pageTitle + ' - GolfTracker');
-  }
+  customers$: Observable<Customer[]>;
+
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit() {
+    this.loadCustomers();
+  }
+
+  loadCustomers() {
+    this.customers$ = this.customerService.getAll()
+      .pipe(map(response => response.data as Customer[]));
   }
 
 }

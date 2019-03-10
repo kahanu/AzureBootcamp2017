@@ -1,0 +1,11 @@
+.dropdown-menu {
+  width: 900px!important;
+}
+
+.container > .row h4 {
+  font-size: 1.2rem;
+}
+
+a.dropdown-item[routerLink] {
+  font-weight: bold;
+}

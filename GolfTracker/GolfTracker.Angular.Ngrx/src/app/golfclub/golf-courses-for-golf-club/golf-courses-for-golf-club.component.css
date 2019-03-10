@@ -1,9 +1,0 @@
-/*gt-golf-courses-for-golfclub div.panel-body table.table {
-    overflow: scroll;
-}*/
-
-@media (min-width: 768px) {
-    table.table tbody td {
-        font-size: 1.3em;
-    }
-}
